@@ -1,5 +1,3 @@
-import { data } from "react-router-dom";
-
 const User =(props)=>{
     const {data} = props
     console.log(props.data.name,"props");
