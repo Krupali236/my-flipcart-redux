@@ -6,7 +6,7 @@ import {createStore} from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './services/Reducers/index.jsx'
 const store = createStore(rootReducer)
-console.warn("store Data",store)
+// console.warn("store Data",store)
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <App />

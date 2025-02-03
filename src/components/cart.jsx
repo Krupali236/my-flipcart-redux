@@ -1,24 +1,10 @@
 import { products } from "./Products";
 
-const Home = (props) => {
-  // console.log(props, "Home props");
-  // console.log(props.data, "Home props");
-  const handleCategory = ()=>{
-
-  }
+const Cart = (props) => {
+  console.log(props,"propss cart")
   return (
     <>
       <div className="container:full">
-        <div>
-          <div className="grid my-5">
-            <div className="columns-1 flex justify-center">
-            <button className="bg-slate-400 mx-10" onClick={handleCategory}>All</button>
-              <button className="bg-slate-400 mx-10" onClick={handleCategory}>Electronics</button>
-              <button className="bg-slate-400 mx-10" onClick={handleCategory}>Accessories</button>
-              <button className="bg-slate-400 mx-10" onClick={handleCategory}>Fashion</button>
-            </div>
-          </div>
-        </div>
         <div className="grid grid-cols-3 gap-5 px-4 my-4">
           {products.map((items, index) => {
             return (
@@ -35,7 +21,10 @@ const Home = (props) => {
                     <button
                       className="my-3"
                       onClick={() =>
-                        props.AddtoCartHandler(index)
+                        props.AddtoCartHandler({
+                          price: 1000,
+                          name: "oneplus phone",
+                        })
                       }
                     >
                       Add To Cart
@@ -56,4 +45,4 @@ const Home = (props) => {
     </>
   );
 };
-export default Home;
+export default Cart;
