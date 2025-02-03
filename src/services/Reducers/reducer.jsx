@@ -1,17 +1,17 @@
-import { ADD_TO_CART } from "../constants";
+import { ADD_TO_CART, REMOVE_TO_CART } from "../constants";
+
 const InitialState = {
   cardData: [],
 };
-const CardItems = (state=InitialState , action) => {
+const CardItems = (state = [], action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      return {
-        ...StaticRange,
-        cardData: action.data,
-      }
-      break;
-      default :
+      return [...state, { cardData: action.data }]
+    case REMOVE_TO_CART:
+      state.pop();
+      return [...state]
+    default:
       return state
   }
 };
-export default CardItems
+export default CardItems;
