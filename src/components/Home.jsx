@@ -37,8 +37,7 @@ const Home = (props) => {
               </button>
               <button className="my-3"    
               onClick={() =>
-                  props.RemovetoCartHandler()
-                }>Remove To Cart</button>
+                  props.RemovetoCartHandler()}>Remove To Cart</button>
             </div>
           </div>
         </div>
