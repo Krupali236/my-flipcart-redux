@@ -1,5 +1,3 @@
-// import { products } from "./Products";
-
 const Home = (props) => {
   const handleCategory = (category) => {
     props.filterByCategoryHandler(category); //  Dispatch Redux action
@@ -38,7 +36,6 @@ const Home = (props) => {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-5 px-4 my-4">
-          {/* {products.map((items, index) => { */}
           {props.filteredProducts.map((items, index) => {
             return (
               <>

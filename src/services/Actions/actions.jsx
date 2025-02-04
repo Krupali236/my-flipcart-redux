@@ -16,13 +16,6 @@ export const RemovetoCart = (data) => {
   };
 };
 
-// export const filterCart = () => {
-//   console.log("Action: Filter Cart");
-//   return {
-//     type: FILTER_TO_CART,
-//   };
-// };
-
 export const filterByCategory = (category) => ({
   type: FILTER_BY_CATEGORY,
   category,

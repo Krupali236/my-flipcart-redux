@@ -1,10 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import User from "./components/users";
-// import Home from './components/Home';
 import HomeContainer from "./containers/HomeContainer";
 import HeaderContainer from "./containers/HeaderContainer";
-import Cart from "./components/cart";
 import CartContainer from "./containers/CartContainer";
 export default function App() {
   const router = createBrowserRouter([
@@ -21,7 +18,6 @@ export default function App() {
       path: "/cart",
       element: (
         <>
-          {/* <Cart /> */}
           <CartContainer />
         </>
       ),
@@ -29,9 +25,6 @@ export default function App() {
   ]);
   return (
     <>
-      {/* <User data={{name:"Krupali"}}/>
-   <Home /> */}
-
       <RouterProvider router={router}> </RouterProvider>
     </>
   );

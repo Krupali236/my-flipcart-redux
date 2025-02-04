@@ -1,10 +1,6 @@
 const Cart = (props) => {
-  // console.log("Cart props (Updated):", props); // Debugging log
   console.log("Cart props (Updated After Fix):", props); // Debugging log
-  console.log("Cart props (After Fix):", props);
-
   const cartItems = Array.isArray(props.data) ? props.data : [];
-
   return (
     <>
       <div className="w-full">
@@ -14,7 +10,11 @@ const Cart = (props) => {
             cartItems.map((item, index) => (
               <div className="columns-1" key={index}>
                 <div className="card bg-slate-300 flex flex-col justify-center items-center h-full p-4">
-                  <img className="my-3 w-32 h-32 object-cover" src={item.image} alt={item.name} />
+                  <img
+                    className="my-3 w-32 h-32 object-cover"
+                    src={item.image}
+                    alt={item.name}
+                  />
                   <p className="text-lg font-bold my-3">{item.name}</p>
                   <p>Price: ${item.price}</p>
                   <button
@@ -27,7 +27,9 @@ const Cart = (props) => {
               </div>
             ))
           ) : (
-            <p className="text-center text-xl font-bold col-span-3">Your cart is empty.</p>
+            <p className="text-center text-xl font-bold col-span-3">
+              Your cart is empty.
+            </p>
           )}
         </div>
       </div>

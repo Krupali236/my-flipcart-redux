@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { AddtoCart, RemovetoCart ,filterByCategory } from "../services/Actions/actions";
+import { AddtoCart, filterByCategory } from "../services/Actions/actions";
 import Home from "../components/Home";
 
 const mapStateToProps = (state) => ({
@@ -11,8 +11,4 @@ const mapDispatchToProps = (dispatch) => ({
   AddtoCartHandler: (data) => dispatch(AddtoCart(data)),
   filterByCategoryHandler: (category) => dispatch(filterByCategory(category)), // ✅ Dispatch category filter action
 });
-// const mapDispatchToProps = (dispatch) => ({
-//   AddtoCartHandler: (data) => dispatch(AddtoCart(data)),
-//   RemovetoCartHandler: (data) => dispatch(RemovetoCart(data)),
-// });
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

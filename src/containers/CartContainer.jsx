@@ -7,12 +7,8 @@ const mapStateToProps = (state) => {
   console.log("Cart Items from Redux:", state.CardItems.items); // 🔍 Log the cart items
   return {
     data: state.CardItems.items, // Access `items` correctly
-
-    // data: state.CardItems.items || [], // Ensure we are getting the right data
   };
 };
-
-
 const mapDispatchToProps = (dispatch) => ({
   AddtoCartHandler: (data) => dispatch(AddtoCart(data)),
   RemovetoCartHandler: (data) => dispatch(RemovetoCart(data)),
