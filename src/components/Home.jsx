@@ -42,7 +42,8 @@ const Home = (props) => {
                     </button>
                     <button
                       className="my-3"
-                      onClick={() => props.RemovetoCartHandler()}
+                      onClick={() => 
+                        props.RemovetoCartHandler()}
                     >
                       Remove To Cart
                     </button>
