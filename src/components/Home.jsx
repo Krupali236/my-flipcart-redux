@@ -1,26 +1,45 @@
-import { products } from "./Products";
+// import { products } from "./Products";
 
 const Home = (props) => {
-  // console.log(props, "Home props");
-  // console.log(props.data, "Home props");
-  const handleCategory = ()=>{
-
-  }
+  const handleCategory = (category) => {
+    props.filterByCategoryHandler(category); //  Dispatch Redux action
+  };
   return (
     <>
       <div className="container:full">
         <div>
           <div className="grid my-5">
             <div className="columns-1 flex justify-center">
-            <button className="bg-slate-400 mx-10" onClick={handleCategory}>All</button>
-              <button className="bg-slate-400 mx-10" onClick={handleCategory}>Electronics</button>
-              <button className="bg-slate-400 mx-10" onClick={handleCategory}>Accessories</button>
-              <button className="bg-slate-400 mx-10" onClick={handleCategory}>Fashion</button>
+              <button
+                className="bg-slate-400 mx-10"
+                onClick={() => handleCategory("all")}
+              >
+                All
+              </button>
+              <button
+                className="bg-slate-400 mx-10"
+                onClick={() => handleCategory("Electronics")}
+              >
+                Electronics
+              </button>
+              <button
+                className="bg-slate-400 mx-10"
+                onClick={() => handleCategory("Accessories")}
+              >
+                Accessories
+              </button>
+              <button
+                className="bg-slate-400 mx-10"
+                onClick={() => handleCategory("Fashion")}
+              >
+                Fashion
+              </button>
             </div>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-5 px-4 my-4">
-          {products.map((items, index) => {
+          {/* {products.map((items, index) => { */}
+          {props.filteredProducts.map((items, index) => {
             return (
               <>
                 <div className="columns-1" key={index}>
@@ -34,18 +53,9 @@ const Home = (props) => {
                     <p>Price : ${items.price}</p>
                     <button
                       className="my-3"
-                      onClick={() =>
-                        props.AddtoCartHandler(index)
-                      }
+                      onClick={() => props.AddtoCartHandler(items)}
                     >
                       Add To Cart
-                    </button>
-                    <button
-                      className="my-3"
-                      onClick={() => 
-                        props.RemovetoCartHandler()}
-                    >
-                      Remove To Cart
                     </button>
                   </div>
                 </div>

@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomeContainer from "./containers/HomeContainer";
 import HeaderContainer from "./containers/HeaderContainer";
 import Cart from "./components/cart";
+import CartContainer from "./containers/CartContainer";
 export default function App() {
   const router = createBrowserRouter([
     {
@@ -20,7 +21,8 @@ export default function App() {
       path: "/cart",
       element: (
         <>
-          <Cart />
+          {/* <Cart /> */}
+          <CartContainer />
         </>
       ),
     },

@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_TO_CART, FILTER_TO_CART } from "../constants";
+import { ADD_TO_CART, REMOVE_TO_CART,FILTER_BY_CATEGORY  } from "../constants";
 
 export const AddtoCart = (data) => {
   console.log("Action: Add to Cart", data);
@@ -16,38 +16,14 @@ export const RemovetoCart = (data) => {
   };
 };
 
-export const filterCart = () => {
-  console.log("Action: Filter Cart");
-  return {
-    type: FILTER_TO_CART,
-  };
-};
-
-// import { ADD_TO_CART, REMOVE_TO_CART,FILTER_TO_CART } from "../constants";
-// import { useNavigate } from "react-router-dom";
-
-// export const AddtoCart = (data) => {
-//   console.log("action" , data)
+// export const filterCart = () => {
+//   console.log("Action: Filter Cart");
 //   return {
-//     type: ADD_TO_CART,
-//     data: data,
-//   };
-// };
-// export const RemovetoCart = () => {
-//   console.log("action");
-//   return {
-//     type: REMOVE_TO_CART,
-//     // data:data,
-//   };
-// };
-// export const filterCart = ()=>{
-//   const navigate = useNavigate();
-//   console.log("filter",data)
-//   navigate(`/cart`);
-//   return{
 //     type: FILTER_TO_CART,
-//     data : data,
-//   }
-// }
+//   };
+// };
 
-
+export const filterByCategory = (category) => ({
+  type: FILTER_BY_CATEGORY,
+  category,
+});
