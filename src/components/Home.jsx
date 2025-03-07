@@ -7,7 +7,7 @@ const Home = (props) => {
       <div className="container:full">
         <div>
           <div className="grid my-5">
-            <div className="columns-1 flex justify-center">
+            <div className="columns-1 flex justify-center lg:flex-row sm:flex-col">
               <button
                 className="bg-slate-400 mx-10"
                 onClick={() => handleCategory("all")}
@@ -35,7 +35,7 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-5 px-4 my-4">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-5 px-4 my-4">
           {props.filteredProducts.map((items, index) => {
             return (
               <>
