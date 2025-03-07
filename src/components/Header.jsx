@@ -17,17 +17,19 @@ const Header = (props) => {
       <div className="w-full">
         <div className="nav h-16 bg-slate-700 flex items-center justify-between px-4">
           {/* Logo or Brand Name */}
-          <div className="text-white text-2xl">Brand</div>
+          <div className="text-2xl">Brand</div>
 
           {/* Navigation Links */}
           <ul className="hidden lg:flex flex-row text-white text-xl space-x-8">
             {["Home", "About", "Contact"].map((item) => (
-              <li key={item}>
+              <li key={item} className="text-white">
                 <NavLink
                   to={`/${item.toLowerCase()}`}
                   className={({ isActive }) =>
                     `cursor-pointer px-3 ${
-                      isActive ? "bg-white text-slate-700 font-bold" : "hover:bg-white hover:text-slate-700"
+                      isActive
+                        ? "bg-white text-slate-700 font-bold"
+                        : "hover:bg-white hover:text-slate-700"
                     }`
                   }
                 >
@@ -51,8 +53,19 @@ const Header = (props) => {
               className="text-white focus:outline-none"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <svg className="w-8 h-8" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="black"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
               </svg>
             </button>
           </div>
@@ -68,7 +81,9 @@ const Header = (props) => {
                     to={`/${item.toLowerCase()}`}
                     className={({ isActive }) =>
                       `cursor-pointer px-3 ${
-                        isActive ? "bg-white text-slate-700 font-bold" : "hover:bg-white hover:text-slate-700"
+                        isActive
+                          ? "bg-white text-slate-700 font-bold"
+                          : "hover:bg-white hover:text-slate-700"
                       }`
                     }
                     onClick={() => setMobileMenuOpen(false)}
