@@ -1,6 +1,10 @@
 const Home = (props) => {
   const handleCategory = (category) => {
-    props.filterByCategoryHandler(category); // Dispatch Redux action
+    if (category === "All") {
+      props.resetProductsHandler(); // Reset to all products
+    } else {
+      props.filterByCategoryHandler(category); // Filter products by category
+    }
   };
 
   return (
@@ -22,8 +26,15 @@ const Home = (props) => {
         {/* Product Grid */}
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2 sm:px-4 lg:px-6 my-4">
           {props.filteredProducts.map((item, index) => (
-            <div key={index} className="bg-slate-300 p-4 rounded-lg shadow-lg flex flex-col items-center">
-              <img className="w-32 h-32 object-cover my-3" src={item.image} alt={item.name} />
+            <div
+              key={index}
+              className="bg-slate-300 p-4 rounded-lg shadow-lg flex flex-col items-center"
+            >
+              <img
+                className="w-32 h-32 object-cover my-3"
+                src={item.image}
+                alt={item.name}
+              />
               <p className="text-lg font-bold my-3 text-center">{item.name}</p>
               <p className="text-center">Price: ${item.price}</p>
               <button
