@@ -26,10 +26,10 @@ const Header = (props) => {
                 <NavLink
                   to={`/${item.toLowerCase()}`}
                   className={({ isActive }) =>
-                    `cursor-pointer px-3 ${
+                    `text-white cursor-pointer px-3 ${
                       isActive
                         ? "bg-white text-slate-700 font-bold"
-                        : "hover:bg-white hover:text-slate-700"
+                        : "hover:bg-white p-2 hover:text-slate-700"
                     }`
                   }
                 >

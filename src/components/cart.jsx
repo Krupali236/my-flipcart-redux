@@ -1,6 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 const Cart = (props) => {
-  console.log("Cart props (Updated After Fix):", props); // Debugging log
+  const navigate = useNavigate();
+  console.log("Cart props (Updated After Fix):", props);
+
   const cartItems = Array.isArray(props.data) ? props.data : [];
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   return (
     <>
@@ -24,6 +32,41 @@ const Cart = (props) => {
                   {item.name}
                 </p>
                 <p className="text-center">Price: ${item.price}</p>
+                <p className="text-center font-bold">
+                  Quantity: {item.quantity}
+                </p>
+                <p className="text-center font-semibold text-green-600">
+                  Total: ${item.price * item.quantity}
+                </p>
+
+                {/* Quantity Controls */}
+                <div className="flex gap-4 my-2">
+                  <button
+                    className="bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600"
+                    onClick={() =>
+                      props.updateCartQuantityHandler(
+                        item.id,
+                        item.quantity - 1
+                      )
+                    }
+                    disabled={item.quantity === 1} // Prevents quantity from going below 1
+                  >
+                    ➖
+                  </button>
+                  <span className="text-lg font-bold">{item.quantity}</span>
+                  <button
+                    className="bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600"
+                    onClick={() =>
+                      props.updateCartQuantityHandler(
+                        item.id,
+                        item.quantity + 1
+                      )
+                    }
+                  >
+                    ➕
+                  </button>
+                </div>
+
                 <button
                   className="bg-red-500 text-white px-4 py-2 rounded-lg my-3 hover:bg-red-700 transition-all"
                   onClick={() => props.RemovetoCartHandler(item)}
@@ -37,6 +80,28 @@ const Cart = (props) => {
               🛒 Your cart is empty.
             </p>
           )}
+        </div>
+
+        {/* ✅ Display Total Price */}
+        {cartItems.length > 0 && (
+          <div className="text-center my-6">
+            <p className="font-mono font-semibold text-xl">
+              Total:{" "}
+              <span className="font-bold text-green-600">
+                ${totalPrice.toFixed(2)}
+              </span>
+            </p>
+          </div>
+        )}
+
+        {/* ✅ Back to Home Button (Fixed Navigation) */}
+        <div className="text-center my-6">
+          <button
+            className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-all"
+            onClick={() => navigate("/")}
+          >
+            Back To Home Page
+          </button>
         </div>
       </div>
     </>
