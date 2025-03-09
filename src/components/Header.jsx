@@ -17,7 +17,7 @@ const Header = (props) => {
       <div className="w-full">
         <div className="nav h-16 bg-slate-700 flex items-center justify-between px-4">
           {/* Logo or Brand Name */}
-          <div className="text-2xl">Brand</div>
+          <div className="text-white text-2xl">Flipcart</div>
 
           {/* Navigation Links */}
           <ul className="hidden lg:flex flex-row text-white text-xl space-x-8">
